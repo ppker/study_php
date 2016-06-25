@@ -1,2 +1,5 @@
-# study_php
-学习php汇总
+### PHP知识点汇总
+---
+* stream php中流的运用
+
+
