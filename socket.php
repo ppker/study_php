@@ -14,6 +14,7 @@ $post_ =array (
     'text'=>'欢迎访问简明现代魔法');
 
 $data=http_build_query($post_);
+
 $fp = fsockopen("nowamagic.net", 80, $errno, $errstr, 5);
 
 $out="POST http://nowamagic.net/news/1/comment HTTP/1.1\r\n";
