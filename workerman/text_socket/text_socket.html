@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>text_socket推送demo</title>
+</head>
+<body>
+
+<div class="container">
+	<span></span>
+</div>
+	
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	var ws = new WebSocket('ws://127.0.0.1:1234');
+	ws.onopen = function() {
+		var uid = "uid1";
+		ws.send(uid);
+	};
+	ws.onmessage = function(e) {
+
+		console.log(e.data);
+		var re_obj = eval("(" + e.data + ")");
+		console.log(re_obj);
+		var m_text = '';
+		$.each(re_obj, function(i, o) {
+			m_text += o;
+		})
+		$("span").text(m_text);
+		// console.log(e.data);
+		/*$.each(e.data,function(i,o){
+			$("span").append("<span>" + o+ "</span>");
+		});*/
+		// $("span").text(e.data);
+		// alert(e.data);
+	};
+	// $("span").first().text('sssssssssssssssss');
+</script>
+
+</body>
+</html>
